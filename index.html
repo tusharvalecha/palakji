@@ -80,11 +80,14 @@
       animation: cardAppear 1s ease both;
     }
 
-    .lock-heart {
-      font-size: clamp(3rem, 12vw, 5rem);
-      margin-bottom: 18px;
-      animation: heartbeat 1.7s infinite;
-    }
+   .lock-heart {
+  display: inline-block;
+  font-size: clamp(3rem, 12vw, 5rem);
+  margin-bottom: 18px;
+  transform-origin: center;
+  animation: loginHeartMotion 1.7s ease-in-out infinite;
+  will-change: transform;
+}
 
     h1,
     h2,
@@ -241,13 +244,15 @@
       animation: floatDown 2s infinite ease-in-out;
     }
 
-    .floating-heart {
-      position: absolute;
-      color: rgba(255, 105, 170, 0.22);
-      font-size: clamp(2rem, 7vw, 5rem);
-      pointer-events: none;
-      animation: floatingHeart 8s infinite ease-in-out;
-    }
+   .floating-heart {
+  position: absolute;
+  z-index: 1;
+  color: rgba(255, 105, 170, 0.5);
+  font-size: clamp(2rem, 7vw, 5rem);
+  pointer-events: none;
+  animation: floatingHeart 8s ease-in-out infinite;
+  will-change: transform;
+}
 
     .heart-one {
       top: 12%;
@@ -558,21 +563,27 @@
     .heart-particle {
   position: fixed;
   bottom: -40px;
+  left: 0;
   z-index: 9998;
   color: #ff5da8;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0;
+  text-shadow: 0 0 12px rgba(255, 93, 168, 0.6);
   animation: riseHeart 8s linear forwards;
+  will-change: transform, opacity;
 }
 
-    .confetti {
+   .confetti {
   position: fixed;
   top: -30px;
   z-index: 9999;
   width: 10px;
   height: 18px;
+  border-radius: 3px;
   pointer-events: none;
+  opacity: 1;
   animation: confettiFall 4s linear forwards;
+  will-change: transform, opacity;
 }
 
     .popup-overlay {
@@ -649,6 +660,25 @@
         transform: scale(1.15);
       }
     }
+
+    @keyframes loginHeartMotion {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.12) rotate(-8deg);
+  }
+
+  50% {
+    transform: scale(1.2) rotate(8deg);
+  }
+
+  75% {
+    transform: scale(1.12) rotate(-4deg);
+  }
+}
 
     @keyframes softGlow {
       0%,
@@ -844,15 +874,11 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
-    }
+   @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
   </style>
 </head>
 
@@ -1405,23 +1431,29 @@
       }
     }
 
-    function startFloatingHearts() {
-      setInterval(function () {
-        const heart = document.createElement("div");
+   let heartsStarted = false;
 
-        heart.className = "heart-particle";
-        heart.textContent = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = 15 + Math.random() * 25 + "px";
-        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+function startFloatingHearts() {
+  if (heartsStarted) return;
 
-        document.body.appendChild(heart);
+  heartsStarted = true;
 
-        setTimeout(function () {
-          heart.remove();
-        }, 10000);
-      }, 1100);
-    }
+  setInterval(function () {
+    const heart = document.createElement("div");
+
+    heart.className = "heart-particle";
+    heart.textContent = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = 15 + Math.random() * 25 + "px";
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+      heart.remove();
+    }, 10000);
+  }, 700);
+}
   </script>
 </body>
 </html>
