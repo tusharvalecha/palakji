@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160914">
+  <title>For Palak Jiii ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --pink: #ff4f91;
+      --light-pink: #ffd6e7;
+      --dark: #160914;
+      --white: #fff8fc;
+      --muted: #d9b8ca;
+      --card: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.2);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, #5c193e 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #3a1234 0%, transparent 35%),
+        linear-gradient(135deg, #160914, #291022 55%, #10070f);
+      overflow-x: hidden;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .glass {
+      width: min(100%, 850px);
+      padding: clamp(24px, 5vw, 50px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(15px);
+    }
+
+    .lock-card {
+      width: min(100%, 430px);
+      text-align: center;
+    }
+
+    .heart {
+      font-size: clamp(45px, 10vw, 80px);
+      animation: pulse 1.8s infinite;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 7vw, 5.5rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 15px 0 25px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .password-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      padding: 13px 15px;
+      outline: none;
+      color: white;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--pink);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 13px 23px;
+      color: white;
+      background: linear-gradient(135deg, #ff4f91, #c72d72);
+      box-shadow: 0 8px 25px rgba(255, 79, 145, 0.25);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .error {
+      color: #ff9cbd;
+      margin-top: 12px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    #mainWebsite {
+      display: none;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 35px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      width: min(100%, 1000px);
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #ffb5d2;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+      font-size: clamp(0.7rem, 2vw, 0.95rem);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      background: linear-gradient(90deg, #fff, #ffafd0, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: rgba(255, 116, 169, 0.2);
+      font-size: clamp(25px, 6vw, 65px);
+      animation: float 8s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .heart-one {
+      top: 10%;
+      left: 10%;
+    }
+
+    .heart-two {
+      right: 12%;
+      top: 25%;
+      animation-delay: 2s;
+    }
+
+    .heart-three {
+      bottom: 15%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    .section {
+      width: min(100% - 32px, 1100px);
+      margin: 0 auto;
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .envelope-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 35px 0;
+    }
+
+    .envelope {
+      width: min(100%, 440px);
+      min-height: 245px;
+      position: relative;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ff8fba, #d8437b);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      text-align: center;
+      color: #3b1025;
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          145deg,
+          transparent 49%,
+          rgba(255, 255, 255, 0.25) 50%,
+          transparent 51%
+        );
+      pointer-events: none;
+    }
+
+    .envelope h3 {
+      margin-bottom: 15px;
+    }
+
+    .letter {
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      white-space: pre-line;
+      line-height: 1.9;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .media-card {
+      overflow: hidden;
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .music-player {
+      text-align: center;
+      padding: 28px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      margin-bottom: 28px;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 650px;
+      margin-top: 18px;
+    }
+
+    .cake-area {
+      text-align: center;
+    }
+
+    .cake {
+      width: min(100%, 330px);
+      margin: 45px auto 20px;
+      position: relative;
+      padding-top: 65px;
+    }
+
+    .candles {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .candle {
+      width: 24px;
+      height: 65px;
+      border: none;
+      border-radius: 8px 8px 3px 3px;
+      background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 8px,
+        #ff79aa 8px,
+        #ff79aa 16px
+      );
+      position: relative;
+    }
+
+    .flame {
+      position: absolute;
+      width: 18px;
+      height: 25px;
+      top: -29px;
+      left: 3px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: #ffd166;
+      box-shadow: 0 0 20px #ff9f1c;
+      animation: flicker 0.7s infinite alternate;
+    }
+
+    .candle.off .flame {
+      display: none;
+    }
+
+    .cake-top {
+      height: 80px;
+      border-radius: 50% 50% 15px 15px;
+      background: #ffc1d9;
+      border: 5px solid #ff8fba;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cake-bottom {
+      height: 80px;
+      margin-top: -15px;
+      border-radius: 15px 15px 35px 35px;
+      background: #ff78ac;
+      border: 5px solid #ff4f91;
+    }
+
+    .cake-text {
+      color: #75163f;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      padding-top: 25px;
+    }
+
+    .final-message {
+      text-align: center;
+      padding: 40px 25px;
+      border-radius: 25px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 79, 145, 0.25),
+          rgba(255, 255, 255, 0.06)
+        );
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .final-message p {
+      color: var(--muted);
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    .email-box {
+      margin-top: 32px;
+      padding: 28px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.18);
+      text-align: left;
+    }
+
+    .email-box h3,
+    .email-box p {
+      text-align: center;
+    }
+
+    .email-box form {
+      display: grid;
+      gap: 13px;
+      margin-top: 22px;
+    }
+
+    .email-box small {
+      display: block;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 9px;
+      height: 15px;
+      z-index: 100;
+      pointer-events: none;
+      animation: fall 4s linear forwards;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+
+      50% {
+        transform: translateY(-35px) rotate(15deg);
+      }
+    }
+
+    @keyframes flicker {
+      from {
+        transform: rotate(-45deg) scale(1);
+      }
+
+      to {
+        transform: rotate(-45deg) scale(1.15);
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .screen {
+        padding: 15px;
+      }
+
+      .glass {
+        border-radius: 22px;
+        padding: 25px 18px;
+      }
+
+      .password-box {
+        flex-direction: column;
+      }
+
+      .password-box .btn {
+        width: 100%;
+      }
+
+      .section {
+        width: min(100% - 24px, 1100px);
+        padding: 50px 0;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .envelope {
+        padding: 25px 18px;
+      }
+
+      .letter {
+        padding: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .media-card img,
+      .media-card video {
+        height: 190px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .candles {
+        gap: 16px;
+      }
+
+      .candle {
+        width: 21px;
+        height: 58px;
+      }
+
+      .email-box {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <section id="lockScreen" class="screen">
+    <div class="glass lock-card">
+      <div class="heart">❤️</div>
+
+      <h2>Something Special For You</h2>
+
+      <p class="subtitle">
+        A little birthday surprise made with love.
+      </p>
+
+      <div class="password-box">
+        <input
+          id="passwordInput"
+          type="password"
+          inputmode="numeric"
+          maxlength="4"
+          placeholder="Enter password"
+          autocomplete="off"
+        >
+
+        <button class="btn" id="unlockBtn">
+          Unlock ❤️
+        </button>
+      </div>
+
+      <p id="passwordError" class="error hidden">
+        Wrong password. Please try again.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- MAIN WEBSITE -->
+  <main id="mainWebsite">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="floating-heart heart-one">♡</div>
+      <div class="floating-heart heart-two">♡</div>
+      <div class="floating-heart heart-three">♡</div>
+
+      <div class="hero-content">
+        <div class="eyebrow">A little surprise for</div>
+
+        <h1>Palak Jiii ❤️</h1>
+
+        <p>
+          Some people remain special, no matter how much time passes.
+          This little corner of the internet is just for you.
+        </p>
+
+        <br>
+
+        <button class="btn" onclick="scrollToSection('letterSection')">
+          Open Your Surprise
+        </button>
+      </div>
+    </section>
+
+
+    <!-- LETTER -->
+    <section class="section" id="letterSection">
+      <div class="section-heading">
+        <h2>A Letter For You 💌</h2>
+
+        <p>
+          Some words that I wanted to leave here for you.
+        </p>
+      </div>
+
+      <div class="envelope-wrap">
+        <div class="envelope">
+          <h3>To Palak Jiii</h3>
+          <p>With lots of love ❤️</p>
+          <p style="margin-top: 35px;">Happy Birthday</p>
+        </div>
+      </div>
+
+      <div class="letter">
+Wishing you a very, very Happy Birthday to the most important person of my life.
+
+I know things are not right between us now, and you may not want to talk to me. I may not know what you want, but I know that I care about you deeply.
+
+I do not want to trouble you or make you uncomfortable. I am not expecting anything in return. I just wanted to wish you on your special day and remind you that you are still very special to me.
+
+I hope your birthday brings you peace, happiness, beautiful memories, and everything your heart wishes for.
+
+Take care of yourself, Palak Jiii.
+
+I LOVE YOU ❤️
+
+Happy Birthday once again. ❤️
+
+— Your's Tushuu
+      </div>
+    </section>
+
+
+    <!-- STATIC MEMORIES -->
+    <section class="section" id="memoriesSection">
+      <div class="section-heading">
+        <h2>Our Memories 📸</h2>
+
+        <p>
+          A few moments that will always remain special. ❤️
+        </p>
+      </div>
+
+      <div class="music-player">
+        <h3>Our Song 🎵</h3>
+
+        <p class="subtitle">
+          A little music for this special moment.
+        </p>
+
+        <audio controls>
+          <source src="music.mp3" type="audio/mpeg">
+          Your browser does not support the audio player.
+        </audio>
+      </div>
+
+      <div class="gallery">
+
+        <div class="media-card">
+          <img src="IMG-20260529-WA0015.jpg" alt="Our Memory">
+        </div>
+
+        <div class="media-card">
+          <img src="IMG-20260603-WA0006.jpg" alt="Our Memory">
+        </div>
+
+        <div class="media-card">
+          <img src="IMG_0033(1).JPG" alt="Our Memory">
+        </div>
+
+        <div class="media-card">
+          <img src="Snapchat-115189891.jpg" alt="Our Memory">
+        </div>
+
+        <div class="media-card">
+          <img src="Snapchat-266767804.jpg" alt="Our Memory">
+        </div>
+
+        <div class="media-card">
+          <video controls playsinline preload="metadata">
+            <source
+              src="AE1879EB-99D9-4FF3-88EF-967B19F381A.mp4"
+              type="video/mp4"
+            >
+            Your browser does not support this video.
+          </video>
+        </div>
+
+        <div class="media-card">
+          <video controls playsinline preload="metadata">
+            <source
+              src="Snapchat-1048541320.mp4"
+              type="video/mp4"
+            >
+            Your browser does not support this video.
+          </video>
+        </div>
+
+        <div class="media-card">
+          <video controls playsinline preload="metadata">
+            <source
+              src="Snapchat-1795976755.mp4"
+              type="video/mp4"
+            >
+            Your browser does not support this video.
+          </video>
+        </div>
+
+        <div class="media-card">
+          <video controls playsinline preload="metadata">
+            <source
+              src="instagram_1777476742742(720p).mp4"
+              type="video/mp4"
+            >
+            Your browser does not support this video.
+          </video>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CAKE -->
+    <section class="section cake-area">
+      <div class="section-heading">
+        <h2>Make A Wish 🎂</h2>
+
+        <p>
+          Tap each candle to blow it out.
+        </p>
+      </div>
+
+      <div class="cake">
+
+        <div class="candles">
+          <button class="candle" aria-label="Blow out candle 1">
+            <span class="flame"></span>
+          </button>
+
+          <button class="candle" aria-label="Blow out candle 2">
+            <span class="flame"></span>
+          </button>
+
+          <button class="candle" aria-label="Blow out candle 3">
+            <span class="flame"></span>
+          </button>
+        </div>
+
+        <div class="cake-top">
+          <div class="cake-text">
+            Happy Birthday
+          </div>
+        </div>
+
+        <div class="cake-bottom"></div>
+      </div>
+
+      <button class="btn" id="wishBtn">
+        Make A Wish ✨
+      </button>
+    </section>
+
+
+    <!-- FINAL SURPRISE -->
+    <section class="section">
+      <div class="final-message">
+
+        <h2>One Last Thing ❤️</h2>
+
+        <p>
+          No matter what happens, I genuinely hope life gives you countless
+          reasons to smile. You deserve happiness, peace, and beautiful days.
+        </p>
+
+        <button class="btn" id="revealBtn">
+          Reveal Final Surprise
+        </button>
+
+        <div id="finalReveal" class="hidden" style="margin-top: 25px;">
+          <h2>Happy Birthday, Palak Jiii! 🎉</h2>
+
+          <p>
+            Keep smiling. Keep shining. And may every dream of yours come true.
+            ❤️
+          </p>
+        </div>
+
+
+        <!-- EMAIL REPLY -->
+        <div class="email-box">
+
+          <h3>Want To Reply By Email? 💌</h3>
+
+          <p class="subtitle">
+            If you ever wish to reply, you can write a message here.
+            Your email app will open with the message prepared.
+          </p>
+
+          <form id="emailReplyForm">
+
+            <input
+              id="replySubject"
+              type="text"
+              value="Re: Your Birthday Surprise ❤️"
+              placeholder="Email subject"
+              required
+            >
+
+            <textarea
+              id="replyMessage"
+              placeholder="Write your reply to Tushar..."
+              required
+            ></textarea>
+
+            <button class="btn" type="submit">
+              Reply By Email 💌
+            </button>
+
+          </form>
+
+          <small>
+            This opens your device's email app. It does not send an email
+            automatically.
+          </small>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <footer>
+      Made with care by Tushar ❤️
+    </footer>
+
+  </main>
+
+
+  <script>
+    /* PASSWORD */
+    const CORRECT_PASSWORD = "1609";
+
+    
+    const TUSHAR_EMAIL = "tushar@gmail.com";
+
+
+    const lockScreen = document.getElementById("lockScreen");
+    const mainWebsite = document.getElementById("mainWebsite");
+    const passwordInput = document.getElementById("passwordInput");
+    const unlockBtn = document.getElementById("unlockBtn");
+    const passwordError = document.getElementById("passwordError");
+
+
+    function unlockWebsite() {
+      if (passwordInput.value === CORRECT_PASSWORD) {
+        lockScreen.style.display = "none";
+        mainWebsite.style.display = "block";
+        launchConfetti(45);
+      } else {
+        passwordError.classList.remove("hidden");
+        passwordInput.value = "";
+        passwordInput.focus();
+      }
+    }
+
+
+    unlockBtn.addEventListener("click", unlockWebsite);
+
+
+    passwordInput.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        unlockWebsite();
+      }
+    });
+
+
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    }
+
+
+    /* CANDLE INTERACTION */
+    const candles = document.querySelectorAll(".candle");
+
+    candles.forEach(function(candle) {
+      candle.addEventListener("click", function() {
+        candle.classList.toggle("off");
+
+        const allOff = Array.from(candles).every(function(item) {
+          return item.classList.contains("off");
+        });
+
+        if (allOff) {
+          launchConfetti(70);
+        }
+      });
+    });
+
+
+    /* WISH BUTTON */
+    document.getElementById("wishBtn").addEventListener("click", function() {
+      launchConfetti(90);
+
+      alert("May all your wishes come true, Palak Jiii! ❤️");
+    });
+
+
+    /* FINAL REVEAL */
+    document.getElementById("revealBtn").addEventListener("click", function() {
+      document.getElementById("finalReveal").classList.remove("hidden");
+
+      launchConfetti(100);
+    });
+
+
+    /* CONFETTI */
+    function launchConfetti(amount) {
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.animationDelay = Math.random() * 1.5 + "s";
+
+        piece.style.background = [
+          "#ff4f91",
+          "#ffd166",
+          "#a8dadc",
+          "#ffffff",
+          "#cdb4db"
+        ][Math.floor(Math.random() * 5)];
+
+        document.body.appendChild(piece);
+
+        setTimeout(function() {
+          piece.remove();
+        }, 5500);
+      }
+    }
+
+
+    /* EMAIL REPLY */
+    const emailReplyForm = document.getElementById("emailReplyForm");
+
+    emailReplyForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const subject = document
+        .getElementById("replySubject")
+        .value
+        .trim();
+
+      const message = document
+        .getElementById("replyMessage")
+        .value
+        .trim();
+
+      if (!subject || !message) {
+        alert("Please write your email reply first. ❤️");
+        return;
+      }
+
+      if (TUSHAR_EMAIL === "YOUR_EMAIL@example.com") {
+        alert("Please add your real email address in the JavaScript code first.");
+        return;
+      }
+
+      const mailtoUrl =
+        "mailto:" +
+        TUSHAR_EMAIL +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(message);
+
+      window.location.href = mailtoUrl;
+    });
+  </script>
+
+</body>
+</html>
